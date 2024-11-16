@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean install' // Use 'mvn clean install' if using Maven
+                mvn clean install // Use 'mvn clean install' if using Maven
             }
         }
         // stage('Test') {
@@ -19,15 +19,15 @@ pipeline {
         // }
         stage('Package') {
             steps {
-                sh 'mvn package' // Use 'mvn package' if using Maven
+                 mvn package // Use 'mvn package' if using Maven
             }
         }
-        stage('Deploy') {
-            steps {
-                // Add your deployment steps here, e.g., using SCP, SSH, Docker, etc.
-                sh 'scp build/libs/*.jar builded/'
-            }
-        }
+        // stage('Deploy') {
+        //     steps {
+        //         // Add your deployment steps here, e.g., using SCP, SSH, Docker, etc.
+        //         sh 'scp build/libs/*.jar builded/'
+        //     }
+        // }
     }
 
     post {
