@@ -1,24 +1,37 @@
 pipeline {
     agent any
 
+    tools {
+        // Deklaracja wersji JDK i Mavena
+        jdk 'Java 17'        // Wymaga zdefiniowanej wersji w Jenkinsie
+        maven 'Maven 4.0.0'   // Wymaga zdefiniowanej wersji w Jenkinsie
+    }
+    
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/mai-kel/pis-demo'
+                // Klonowanie repozytorium
+                git branch: 'main', url: 'https://github.com/mai-kel/pis-demo'
             }
         }
+
         stage('Build') {
             steps {
-                mvn 'clean install' // Use 'mvn clean install' if using Maven
+                // Kompilacja projektu
+                script {
+                    bat 'mvn clean install' // Użycie bat dla komendy powłoki w systemie Windows
+                }
             }
         }
 
         stage('Package') {
             steps {
-                 mvn 'package' // Use 'mvn package' if using Maven
+                // Tworzenie paczki
+                script {
+                    bat 'mvn package' // Użycie bat dla komendy powłoki w systemie Windows
+                }
             }
         }
-
     }
 
     post {
