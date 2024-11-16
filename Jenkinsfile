@@ -19,8 +19,10 @@ pipeline {
         stage('Build') {
             steps {
                 // Kompilacja projektu
-                script {                    
-                    mvn clean install // Użycie bat dla komendy powłoki w systemie Windows
+                script {
+                    bat 'set M2_HOME=E:\maven\apache-maven-3.8.8'
+                    bat 'set path=E:\maven\apache-maven-3.8.8\bin;%path%'
+                    bat 'mvn clean install' // Użycie bat dla komendy powłoki w systemie Windows
                 }
             }
         }
@@ -29,7 +31,9 @@ pipeline {
             steps {
                 // Tworzenie paczki
                 script {
-                    mvn package // Użycie bat dla komendy powłoki w systemie Windows
+                    bat 'set M2_HOME=E:\maven\apache-maven-3.8.8'
+                    bat 'set path=E:\maven\apache-maven-3.8.8\bin;%path%'
+                    bat 'mvn package' // Użycie bat dla komendy powłoki w systemie Windows
                 }
             }
         }
