@@ -1,15 +1,12 @@
 pipeline {
     agent any
 
-    // tools {
-    //     // Deklaracja wersji JDK i Mavena
-    //     jdk 'Java 17'        // Wymaga zdefiniowanej wersji w Jenkinsie
-    //     maven 'Maven 4.0.0'   // Wymaga zdefiniowanej wersji w Jenkinsie
-    // }
+    tools {
+        // Deklaracja wersji JDK i Mavena
+        maven 'Maven 3.8.8'   // Wymaga zdefiniowanej wersji w Jenkinsie
+    }
 
-    environment {
-            MAVEN_HOME = 'E:\\maven\\apache-maven-3.8.8' // Ścieżka do zainstalowanego Mavena
-        }
+
     
     stages {
         stage('Checkout') {
@@ -22,8 +19,8 @@ pipeline {
         stage('Build') {
             steps {
                 // Kompilacja projektu
-                script {
-                    bat 'mvn clean install' // Użycie bat dla komendy powłoki w systemie Windows
+                script {                    
+                    mvn clean install // Użycie bat dla komendy powłoki w systemie Windows
                 }
             }
         }
@@ -32,7 +29,7 @@ pipeline {
             steps {
                 // Tworzenie paczki
                 script {
-                    bat 'mvn package' // Użycie bat dla komendy powłoki w systemie Windows
+                    mvn package // Użycie bat dla komendy powłoki w systemie Windows
                 }
             }
         }
