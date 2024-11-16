@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                'mvn clean install' // Use 'mvn clean install' if using Maven
+                mvn 'clean install' // Use 'mvn clean install' if using Maven
             }
         }
         // stage('Test') {
@@ -19,7 +19,7 @@ pipeline {
         // }
         stage('Package') {
             steps {
-                 'mvn package' // Use 'mvn package' if using Maven
+                 mvn 'package' // Use 'mvn package' if using Maven
             }
         }
         // stage('Deploy') {
