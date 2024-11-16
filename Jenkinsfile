@@ -6,6 +6,10 @@ pipeline {
     //     jdk 'Java 17'        // Wymaga zdefiniowanej wersji w Jenkinsie
     //     maven 'Maven 4.0.0'   // Wymaga zdefiniowanej wersji w Jenkinsie
     // }
+
+    environment {
+            MAVEN_HOME = 'E:\maven\apache-maven-3.8.8' // Ścieżka do zainstalowanego Mavena
+        }
     
     stages {
         stage('Checkout') {
