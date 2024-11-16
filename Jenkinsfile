@@ -8,7 +8,7 @@ pipeline {
     // }
 
     environment {
-            MAVEN_HOME = 'E:\maven\apache-maven-3.8.8' // Ścieżka do zainstalowanego Mavena
+            MAVEN_HOME = 'E:\\maven\\apache-maven-3.8.8' // Ścieżka do zainstalowanego Mavena
         }
     
     stages {
