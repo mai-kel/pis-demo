@@ -1,11 +1,11 @@
 pipeline {
     agent any
 
-    tools {
-        // Deklaracja wersji JDK i Mavena
-        jdk 'Java 17'        // Wymaga zdefiniowanej wersji w Jenkinsie
-        maven 'Maven 4.0.0'   // Wymaga zdefiniowanej wersji w Jenkinsie
-    }
+    // tools {
+    //     // Deklaracja wersji JDK i Mavena
+    //     jdk 'Java 17'        // Wymaga zdefiniowanej wersji w Jenkinsie
+    //     maven 'Maven 4.0.0'   // Wymaga zdefiniowanej wersji w Jenkinsie
+    // }
     
     stages {
         stage('Checkout') {
