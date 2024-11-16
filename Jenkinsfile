@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Klonowanie repozytorium
-                git branch: 'main', url: 'https://github.com/mai-kel/pis-demo'
+                git branch: 'master', url: 'https://github.com/mai-kel/pis-demo'
             }
         }
 
